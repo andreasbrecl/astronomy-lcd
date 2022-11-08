@@ -6,6 +6,9 @@ This class will handle pulling of the data for astronomy. It will then format
 the information into a string to be passed out.
 """
 
+# Import dependencies
+import astronomy
+
 class GetAstronomyData:
     def __init__(self) -> None:
         pass
