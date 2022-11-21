@@ -45,8 +45,8 @@ class DisplayOnLCD:
         riseTimeSun = planetInfo[10]
         setTimeSun = planetInfo[11]
 
-        # Turn off backlight
-        self.lcd.backlight_enabled = False
+        # Turn on backlight
+        self.lcd.backlight_enabled = True
 
         # Display information mars
         riseTimeMarsString = "Mars Rise: " + str(riseTimeMars)
