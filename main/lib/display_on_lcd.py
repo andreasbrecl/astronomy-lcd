@@ -96,7 +96,7 @@ class DisplayOnLCD:
 
         # Display information sun
         riseTimeSunString = "Sun Rise: " + str(riseTimeSun)
-        setTimeSunString = "Sun Rise: " + str(setTimeSun)
+        setTimeSunString = "Sun Set: " + str(setTimeSun)
         self.lcd.write_string(riseTimeSunString)
         self.lcd.crlf()
         self.lcd.write_string(setTimeSunString)
