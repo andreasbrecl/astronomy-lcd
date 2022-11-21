@@ -96,23 +96,30 @@ class DisplayOnLCD:
         self.lcd.write_string(setTimeJupiterString)
         self.lcd.crlf()
 
-        # Display information full and new moon
-        newMoonString = "Next New Moon: " + str(nextNewMoonDate)
-        fullMoonSunString = "Next Full Moon: " + str(nextFullMoonDate)
-        self.lcd.write_string(newMoonString)
-        self.lcd.crlf()
-        self.lcd.write_string(fullMoonSunString)
-
-        # Sleep between
-        sleep(10)
-        self.lcd.close(clear=True)
-
         # Display information sun
         riseTimeSunString = "Sun Rise: " + str(riseTimeSun)
         setTimeSunString = "Sun Set: " + str(setTimeSun)
         self.lcd.write_string(riseTimeSunString)
         self.lcd.crlf()
         self.lcd.write_string(setTimeSunString)
+
+        # Sleep between
+        sleep(10)
+        self.lcd.close(clear=True)
+
+        # Display information full and new moon
+        newMoonString = "Next New Moon: " 
+        newMoonStringDate = str(nextNewMoonDate)
+        fullMoonSunString = "Next Full Moon: " 
+        fullMoonSunStringDate = str(nextFullMoonDate)
+        self.lcd.write_string(newMoonString)
+        self.lcd.crlf()
+        self.lcd.write_string(newMoonStringDate)
+        self.lcd.crlf()
+        self.lcd.write_string(fullMoonSunString)
+        self.lcd.crlf()
+        self.lcd.write_string(fullMoonSunStringDate)
+        
 
         # Sleep between
         sleep(10)
