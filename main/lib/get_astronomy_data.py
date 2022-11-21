@@ -132,7 +132,18 @@ class GetAstronomyData:
         moon = ephem.Moon()
         riseTimeMoon, setTimeMoon = self.getRiseAndSetTimes(moon)
 
-        return riseTimeMoon, setTimeMoon
+        # Get New moon information
+        nextNewMoonDateAndTime = str(ephem.next_new_moon(self.location.date))
+        nextNewMoonDateAndTimeSplit = nextNewMoonDateAndTime.split(" ")
+        nextNewMoonDate = nextNewMoonDateAndTimeSplit[0]
+
+        # Get full moon information
+        nextFullMoonDateAndTime = str(ephem.next_full_moon(self.location.date))
+        nextFullMoonDateAndTimeSplit = nextFullMoonDateAndTime.split(" ")
+        nextFullMoonDate = nextFullMoonDateAndTimeSplit[0]
+
+
+        return riseTimeMoon, setTimeMoon, nextNewMoonDate, nextFullMoonDate
 
     def getSunInfo(self):
         """
@@ -155,9 +166,9 @@ class GetAstronomyData:
         riseTimeSaturn, setTimeSaturn = self.getSaturnInfo()
         riseTimeJupiter, setTimeJupiter = self.getJupiterInfo()
         riseTimeVenus, setTimeVenus = self.getVenusInfo()
-        riseTimeMoon, setTimeMoon = self.getMoonInfo()
+        riseTimeMoon, setTimeMoon, nextNewMoonDate, nextFullMoonDate = self.getMoonInfo()
         riseTimeSun, setTimeSun = self.getSunInfo()
 
         # Return list
-        planetInfo = [riseTimeMars, setTimeMars, riseTimeSaturn, setTimeSaturn, riseTimeJupiter, setTimeJupiter, riseTimeVenus, setTimeVenus, riseTimeMoon, setTimeMoon, riseTimeSun, setTimeSun]
+        planetInfo = [riseTimeMars, setTimeMars, riseTimeSaturn, setTimeSaturn, riseTimeJupiter, setTimeJupiter, riseTimeVenus, setTimeVenus, riseTimeMoon, setTimeMoon, riseTimeSun, setTimeSun, nextNewMoonDate, nextFullMoonDate]
         return planetInfo

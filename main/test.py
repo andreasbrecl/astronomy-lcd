@@ -24,19 +24,7 @@ denver.lat = latitude
 denver.long = longitude
 denver.date = currentDate
 
-mars = ephem.Mars()
+mars = ephem.Moon()
 
-print(denver.next_rising(mars))
-print(denver.next_setting(mars))
-
-test = str(denver.next_rising(mars))
-print(test.split(":"))
-
-
-# Pull date
-todayNoFormat = str(date.today())
-
-# Format date
-todaySplit = todayNoFormat.split("-")
-today = todaySplit[0] + '/' + todaySplit[1] + '/' + todaySplit[2] + ' 7:00:00'
-print(today)
+print(ephem.next_new_moon(currentDate))
+#print(ephem.moon_phase(currentDate))

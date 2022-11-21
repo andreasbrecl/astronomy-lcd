@@ -44,6 +44,8 @@ class DisplayOnLCD:
         setTimeMoon = planetInfo[9]
         riseTimeSun = planetInfo[10]
         setTimeSun = planetInfo[11]
+        nextNewMoonDate = planetInfo[12]
+        nextFullMoonDate = planetInfo[13]
 
         # Turn on backlight
         self.lcd.backlight_enabled = True
@@ -93,6 +95,17 @@ class DisplayOnLCD:
         self.lcd.crlf()
         self.lcd.write_string(setTimeJupiterString)
         self.lcd.crlf()
+
+        # Display information full and new moon
+        newMoonString = "Next New Moon: " + str(nextNewMoonDate)
+        fullMoonSunString = "Next Full Moon: " + str(nextFullMoonDate)
+        self.lcd.write_string(newMoonString)
+        self.lcd.crlf()
+        self.lcd.write_string(fullMoonSunString)
+
+        # Sleep between
+        sleep(10)
+        self.lcd.close(clear=True)
 
         # Display information sun
         riseTimeSunString = "Sun Rise: " + str(riseTimeSun)
