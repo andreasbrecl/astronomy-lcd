@@ -13,7 +13,13 @@ import ephem
 class GetAstronomyData:
     def __init__(self, latitude, longitude):
         """
-        
+        This constructor defines the information for astronomy objects needed
+        for calculating rise/set/phases.
+
+        Input:  latitude <str> - Latitude of observer
+                longitude <str> - Longitude of observer
+
+        Output: None
         """
         # Define class variables
         self.latitude = latitude
@@ -31,7 +37,13 @@ class GetAstronomyData:
 
     def convertToMST(self, riseTime, setTime):
         """
-        
+        This converts the rise/set time to MST from UTC.
+
+        Input:  riseTime <str> - Rise time UTC
+                setTime <str> - Set time UTC
+
+        Output: riseTime <str> - Converted rise time
+                setTime <str> - Converted set time
         """
         # Convert to MST from UTC
         riseTimeSplit = riseTime.split(":")
@@ -65,7 +77,13 @@ class GetAstronomyData:
 
     def getRiseAndSetTimes(self, celestialObject):
         """
-        
+        Calculates the rise and set time based on the object inputted into
+        the system. This will change per day.
+
+        Input:  celestialObject <obj> - pyephem object for celestial body
+
+        Output: riseTime <str> - Rise time of object
+                setTime <str> - Set time of object
         """
         # Pull rise and set information
         riseTimeAndDate = str(self.location.next_rising(celestialObject))
@@ -86,7 +104,12 @@ class GetAstronomyData:
 
     def getMarsInfo(self):
         """
-        
+        This function pulls the rise and set information for Mars.
+
+        Input:  None
+
+        Output: riseTimeMars <str> - Rise time for Mars
+                setTimeMars <str> - Set time for Mars
         """
         # Get rise and set time information
         mars = ephem.Mars()
@@ -96,7 +119,12 @@ class GetAstronomyData:
 
     def getSaturnInfo(self):
         """
-        
+        This function pulls the rise and set information for Saturn.
+
+        Input:  None
+
+        Output: riseTimeSaturn <str> - Rise time for Saturn
+                setTimeSaturn <str> - Set time for Saturn
         """
         # Get rise and set time information
         saturn = ephem.Saturn()
@@ -106,7 +134,12 @@ class GetAstronomyData:
 
     def getJupiterInfo(self):
         """
-        
+        This function pulls the rise and set information for Jupiter.
+
+        Input:  None
+
+        Output: riseTimeJupiter <str> - Rise time for Jupiter
+                setTimeJupiter <str> - Set time for Jupiter
         """
         # Get rise and set time information
         jupiter = ephem.Jupiter()
@@ -116,7 +149,12 @@ class GetAstronomyData:
 
     def getVenusInfo(self):
         """
-        
+        This function pulls the rise and set information for Venus.
+
+        Input:  None
+
+        Output: riseTimeVenus <str> - Rise time for Venus
+                setTimeVenus <str> - Set time for Venus
         """
         # Get rise and set time information
         venus = ephem.Venus()
@@ -126,7 +164,14 @@ class GetAstronomyData:
 
     def getMoonInfo(self):
         """
-        
+        This function pulls the rise and set information for Moon.
+
+        Input:  None
+
+        Output: riseTimeMoon <str> - Rise time for Moon
+                setTimeMoon <str> - Set time for Moon
+                nextNewMoonDate <str> - New moon future date
+                nextFullMoonDate <str> - Full moon future date
         """
         # Get rise and set time information
         moon = ephem.Moon()
@@ -147,7 +192,12 @@ class GetAstronomyData:
 
     def getSunInfo(self):
         """
-        
+        This function pulls the rise and set information for Sun.
+
+        Input:  None
+
+        Output: riseTimeSun <str> - Rise time for Sun
+                setTimeSun <str> - Set time for Sun
         """
         # Get rise and set time information
         sun = ephem.Sun()
@@ -157,6 +207,11 @@ class GetAstronomyData:
 
     def getPlanetInfo(self, currentDate):
         """
+        This function pulls all the information for the celestial bodies.
+
+        Input:  currentDate <str> - Date of today
+
+        Output: planetInfo <list> <str> - This is a list of the planet information for rise/set/phases
         """
         # Set date
         self.location.date = currentDate

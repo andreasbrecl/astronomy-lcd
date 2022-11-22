@@ -13,7 +13,19 @@ from time import sleep
 class DisplayOnLCD:
     def __init__(self, lcdMode, cols, rows, charmap, i2cExpander, address, port):
         """
-        
+        This constructor creates the objects for the class. It takes
+        in the information needed to establish the i2c communication
+        for the LCD.
+
+        Input:  lcdMode <str> - Defines communication protocal
+                cols <int> - Number of columns on the LCD
+                rows <int> - Number of rows on the LCD
+                charmap <str> - Character mapping for LCD
+                i2cExpander <str> - i2c expander information
+                address <hex> - Hex address for i2c comms
+                port <int> - raspberry pi port number
+
+        Output: None
         """
         # Define object variables
         self.lcdMode = lcdMode
@@ -29,7 +41,12 @@ class DisplayOnLCD:
 
     def displayMessage(self, planetInfo):
         """
-        
+        This function takes in the planet information as list and
+        then displays the information on the LCD screen.
+
+        Input:  planetInfo <list> <str> - This is a list of the planet information for rise/set/phases
+
+        Output: None
         """
         # Define variables
         riseTimeMars = planetInfo[0]

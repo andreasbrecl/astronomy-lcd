@@ -59,7 +59,12 @@ def main():
 
 def getDate():
     """
-    
+    This function pulls the current date from the computer. This is used for 
+    astronomy date.
+
+    Input:  None
+
+    Output: None
     """
     # Pull date
     todayNoFormat = str(date.today())
